@@ -2,8 +2,8 @@
 
 block="server {
     listen 80;
-    server_name $1;
-    root $2;
+    server_name ~^(?<subdomain>.+?)\.$1;
+    root /home/forge/$1/$subdomain;
 
     index index.html index.htm index.php;
 
